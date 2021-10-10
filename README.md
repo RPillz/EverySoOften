@@ -16,9 +16,11 @@ If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Lar
 
 ### Installation
 
-This is a fairly standard Laravel site. See ['install documentation'](https://laravel.com/docs/8.x/installation)
+This is a standard Laravel site. You can clone this git and see ['Laravel install documentation'](https://laravel.com/docs/8.x/installation)
 
 The reminders and emails require the work queue to be running (there are two daily tasks), and email configured to be sent properly.
+
+Note: You may need to run  **composer install --ignore-platform-reqs**  as the package goldspecdigital/laravel-eloquent-uuid is wanting PHP 7.3
 
 ### License
 
