@@ -25,11 +25,6 @@ return [
             'icon' => 'user',
             'color' => '#3da5bf',
         ],
-        'family' => [
-            'label' => 'People',
-            'icon' => 'users',
-            'color' => '#f20404',
-        ],
         'celebration' => [
             'label' => 'Celebration',
             'icon' => 'cake',

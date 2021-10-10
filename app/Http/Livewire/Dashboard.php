@@ -24,6 +24,8 @@ class Dashboard extends Component
     public $myTasks;
     public $viewTask;
 
+    public $confirmDelete = false;
+
     protected function rules()
     {
 
@@ -63,8 +65,6 @@ class Dashboard extends Component
             $this->resetNewTask();
 
             $this->refreshTasks();
-
-            \App\Jobs\ScheduleReminders::dispatchSync('daily');
 
         }
 
@@ -187,6 +187,31 @@ class Dashboard extends Component
 
     }
 
+    public function deleteTask(){
+
+        if ($this->confirmDelete){
+
+            $this->viewTask->delete();
+
+            $this->resetValidation();
+            $this->confirmDelete = false;
+
+            $this->hideModal();
+
+            $this->viewHome();
+
+            $this->notification()->success(
+                $title = 'Task deleted',
+            );
+
+        } else {
+
+            $this->addError('confirmDelete', 'Please confirm.');
+
+        }
+
+    }
+
     public function updatedViewTaskIsAutomatic($value){
 
         $this->viewTask->save();
@@ -228,10 +253,23 @@ class Dashboard extends Component
 
         $reminder->save();
 
-        $this->notification()->success(
-            $title = 'Done!',
-            $description = 'Task marked as complete',
-        );
+        if ($reminder->task->schedule->get('cycle') == 'on_action'){
+
+            $reminder->task->setReminder();
+
+            $this->notification()->success(
+                $title = 'Done!',
+                $description = 'And next reminder has been set.',
+            );
+
+        } else {
+
+            $this->notification()->success(
+                $title = 'Done!',
+                $description = 'Task marked as complete',
+            );
+
+        }
 
         $this->viewTask->refresh();
 

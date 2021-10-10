@@ -9,6 +9,8 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Carbon;
 
 use App\Traits\HasActions;
 
@@ -66,9 +68,24 @@ class User extends Authenticatable
         return $this->hasMany(Task::class)->orderBy('updated_at', 'desc');
     }
 
+    public function reminders()
+    {
+        return $this->hasManyThrough(Reminder::class, Task::class);
+    }
+
     public function actions() {
         return $this->hasMany(Action::class)->orderBy('created_at', 'desc');
     }
 
+    public function scopeWithTasksDueToday($query)
+    {
+
+        return $query->whereHas('tasks', function (Builder $query) {
+            $query->where('is_active', true)->whereHas('reminders', function (Builder $query) {
+                $query->due();
+            });
+        });
+
+    }
 
 }

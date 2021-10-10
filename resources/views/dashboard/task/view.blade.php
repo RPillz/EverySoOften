@@ -8,11 +8,15 @@
 
 </div>
 
-@if($overdue = $viewTask->overdueReminders()->first())
+@if($overdue = $viewTask->reminders()->overdue()->first())
 
     @include('dashboard.task.overdue')
 
-@elseif($next = $viewTask->upcomingReminders()->first())
+@elseif($next = $viewTask->reminders()->due()->first())
+
+    @include('dashboard.task.due')
+
+@elseif($next = $viewTask->reminders()->upcoming()->first())
 
     @include('dashboard.task.next')
 
@@ -20,23 +24,19 @@
 
 <div class="p-5">
 
-    <div class="grid md:grid-cols-3 gap-8">
+    <div class="grid md:grid-cols-2 gap-8">
 
-        <div class="">
+        <div class="space-y-10">
 
             @include('dashboard.task.info')
 
         </div>
 
-        <div class="">
-
-            @include('dashboard.task.scheduler')
-
-        </div>
-
-        <div class="">
+        <div class="space-y-10">
 
             @include('dashboard.task.reminders')
+
+            @include('dashboard.task.completed')
 
         </div>
 

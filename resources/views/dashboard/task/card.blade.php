@@ -1,4 +1,4 @@
-<div class="w-full flex flex-col shadow rounded-lg border">
+<div class="w-full bg-white flex flex-col shadow rounded-lg border">
         <div class="px-4 py-2.5 flex justify-between items-center border-b-4" style="border-color: {{ config('tasks.categories.'.$task->category.'.color') }};">
             <h3 class="text-md font-bold text-secondary-700">{{ $task->label }}</h3>
             <div class="flex space-x-2 justify-end">

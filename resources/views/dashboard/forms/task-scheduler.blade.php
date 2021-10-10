@@ -18,7 +18,7 @@
             </x-native-select>
         </div>
 
-        <div> 
+        {{-- <div> 
             <x-datetime-picker
                 label="From"
                 placeholder="Start Date"
@@ -34,7 +34,7 @@
                 wire:model.defer="viewTask.end_at"
                 without-time=1
             />
-        </div>
+        </div> --}}
 
         <div class="col-span-2">
             <x-native-select label="Next Cycle Begins" wire:model="viewTask.schedule.cycle">

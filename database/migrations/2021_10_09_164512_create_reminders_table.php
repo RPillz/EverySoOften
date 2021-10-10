@@ -15,7 +15,7 @@ class CreateRemindersTable extends Migration
     {
         Schema::create('reminders', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('task_id');
+            $table->foreignUuid('task_id')->constrained()->onDelete('cascade');
             $table->dateTimeTz('remind_at', $precision = 0)->nullable();
             $table->dateTimeTz('due_at', $precision = 0)->required();
             $table->dateTimeTz('expire_at', $precision = 0)->nullable();

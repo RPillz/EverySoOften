@@ -1,4 +1,4 @@
-<svg viewBox="0 0 300 300" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" {{ $attributes }}">
+<svg viewBox="0 0 300 115" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" {{ $attributes->merge(['class' => 'fill-current w-auto']) }}>
     <g id="eso-logo" serif:id="eso logo" transform="matrix(1,0,0,0.380084,0,0)">
         <rect x="0" y="0" width="300" height="300" style="fill:none;"/>
         <g transform="matrix(1,0,0,2.631,-0.36719,-264.367)">

@@ -10,7 +10,7 @@
 
     <div class="space-y-3">
 
-        @forelse($viewTask->upcomingReminders() as $reminder)
+        @forelse($viewTask->reminders()->upcoming()->get() as $reminder)
 
         <div class="border-b flex justify-between items-center">
 
@@ -18,11 +18,15 @@
             
             <span class="text-sm @if($reminder->is_complete) line-through text-green-600 @endif">{{ $reminder->due_at->diffForHumans() }}</span>
 
-            <button class="rounded-full text-gray-400 hover:text-red-500 focus:outline-none focus:ring-2 focus:ring-red-500 transition"
-                wire:click="deleteReminder('{{ $reminder->id }}')"
-                >
-                <x-icon name="trash" class="w-4 h-4" />
-            </button>
+            @if($reminder->is_complete)
+                <x-icon name="check" class="text-green-400 w-4 h-4" />
+            @else
+                <button class="rounded-full text-gray-400 hover:text-red-500 focus:outline-none focus:ring-2 focus:ring-red-500 transition"
+                    wire:click="deleteReminder('{{ $reminder->id }}')"
+                    >
+                    <x-icon name="trash" class="w-4 h-4" />
+                </button>
+            @endif
 
         </div>
 

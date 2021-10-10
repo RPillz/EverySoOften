@@ -15,8 +15,14 @@ use App\Http\Livewire\Dashboard;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/{modelSlug?}/{uuidSlug?}', Dashboard::class)->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/{modelSlug?}/{uuidSlug?}', Dashboard::class)->name('dashboard');
+
+// Route::get('/mailtest', function () {
+
+//     return new App\Mail\DailyReminders(auth()->user());
+
+// });

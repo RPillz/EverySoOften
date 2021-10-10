@@ -35,14 +35,6 @@ class Task extends Model
         return $this->hasMany(Reminder::class);
     }
 
-    public function upcomingReminders(){
-        return $this->reminders()->whereDate('due_at', '>', Carbon::now())->orderBy('due_at', 'asc')->get();
-    }
-
-    public function overdueReminders(){
-        return $this->reminders()->where('is_complete', false)->where('is_expired', false)->whereDate('due_at', '<=', Carbon::now())->orderBy('due_at', 'desc')->get();
-    }
-
     public function getScheduleText(){
 
         $frequency = $this->schedule->get('frequency');
