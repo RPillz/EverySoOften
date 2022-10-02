@@ -61,6 +61,7 @@ return [
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
+            'require_primary_key' => env('DB_REQUIRE_PRIMARY_KEY', false),
         ],
 
         'pgsql' => [
