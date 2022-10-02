@@ -10,17 +10,13 @@ Fun fact: This is my first ever *public* project on GitHub!
 
 ### Built as part of the first LaraJam!
 
-I heard about [LaraJam.dev](https://app.larajam.dev) hosting a Laravel hack-a-thon with the theme of "Personal Productivity" and jumped in!
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+I heard about [LaraJam.dev](https://app.larajam.dev) hosting a Laravel hack-a-thon with the theme of "Personal Productivity" and jumped in! This app was built from scratch in a single weekend. (so... lower your expectations.)
 
 ### Installation
 
 This is a standard Laravel site. You can clone this git and see ['Laravel install documentation'](https://laravel.com/docs/8.x/installation)
 
 The reminders and emails require the work queue to be running (there are two daily tasks), and email configured to be sent properly.
-
-Note: You may need to run  **composer install --ignore-platform-reqs**  as the package goldspecdigital/laravel-eloquent-uuid is wanting PHP 7.3
 
 ### License
 
