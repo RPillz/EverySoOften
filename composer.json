@@ -10,12 +10,13 @@
         "goldspecdigital/laravel-eloquent-uuid": "^9.0.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^9.0",
+        "laravel/horizon": "^5.10.0",
         "laravel/jetstream": "^2.4",
         "laravel/sanctum": "^2.11",
+        "laravel/telescope": "^4.9",
         "laravel/tinker": "^2.5",
         "livewire/livewire": "^2.5",
-        "wireui/wireui": "^1.0.0",
-        "laravel/horizon": "^5.10.0"
+        "wireui/wireui": "^1.0.0"
     },
     "require-dev": {
         "spatie/laravel-ignition": "^1.0",
