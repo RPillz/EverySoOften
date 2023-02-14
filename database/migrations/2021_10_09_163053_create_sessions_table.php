@@ -13,8 +13,14 @@ class CreateSessionsTable extends Migration
      */
     public function up()
     {
+
+        // fix for DigitalOcean Managed MySQL
+        if (config('database.connections.mysql.require_primary_key')){
+            \Illuminate\Support\Facades\DB::statement('SET SESSION sql_require_primary_key=0');
+        }
+
         Schema::create('sessions', function (Blueprint $table) {
-            $table->id();
+            $table->string('id')->primary();
             $table->foreignId('user_id')->nullable()->index();
             $table->string('ip_address', 45)->nullable();
             $table->text('user_agent')->nullable();
