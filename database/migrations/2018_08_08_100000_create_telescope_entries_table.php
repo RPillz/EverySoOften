@@ -64,7 +64,6 @@ return new class extends Migration
         });
 
         $this->schema->create('telescope_entries_tags', function (Blueprint $table) {
-            $table->id()->primary();
             $table->uuid('entry_uuid');
             $table->string('tag');
 
