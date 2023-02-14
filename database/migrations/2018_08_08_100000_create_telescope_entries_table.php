@@ -77,7 +77,6 @@ return new class extends Migration
         });
 
         $this->schema->create('telescope_monitoring', function (Blueprint $table) {
-            $table->id()->primary();
             $table->string('tag');
         });
     }
